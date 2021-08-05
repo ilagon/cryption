@@ -5,11 +5,11 @@ A Standalone Express Application that queries current market prices of crypto an
 Queried prices are then used to update custom notion pages to reflect updated prices using the NotionAPI.
 
 Tech Stack:
-NodeJS
-Express
-Notion
+NodeJS  
+Express  
+Notion  
 
 APIs:
-(CoinGecko)[https://www.coingecko.com/en/api]
-(FinnHub)[https://finnhub.io/docs/api]
-(NotionAPI)[https://developers.notion.com]
+[CoinGecko](https://www.coingecko.com/en/api)  
+[FinnHub](https://finnhub.io/docs/api)  
+[NotionAPI](https://developers.notion.com)  
