@@ -9,7 +9,7 @@ NodeJS
 Express  
 Notion  
 
-APIs:
+APIs:  
 [CoinGecko](https://www.coingecko.com/en/api)  
 [FinnHub](https://finnhub.io/docs/api)  
 [NotionAPI](https://developers.notion.com)  
