@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "test": "mocha"
   },
   "dependencies": {
     "@notionhq/client": "^0.2.4",
@@ -11,6 +12,7 @@
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "mocha": "^9.0.3",
     "morgan": "~1.9.1",
     "node-schedule": "^2.0.0"
   },
