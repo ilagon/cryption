@@ -3,7 +3,7 @@ const cryptoUtils = require("../util/cryptoUtil");
 const notion = new Client({auth: process.env.NOTION_INTEGRATION_TOKEN});
 let idList = [];
 
-findTrackingList = async () => {
+const findTrackingList = async () => {
     const dbID = process.env.NOTION_CRYPTO_ID;
     const response = await notion.databases.query({
         database_id: dbID,
