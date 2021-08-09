@@ -20,7 +20,7 @@ const findTrackingList = async () => {
 exports.updateTrackedPrices = async (req,res) => {
     let idList = [];
     let trackingList = await findTrackingList();
-    
+
     //Retrieve tracked IDs
     trackingList.forEach(tracker => {
         idList.push(tracker.properties.ID.rich_text[0].text.content);
@@ -29,17 +29,25 @@ exports.updateTrackedPrices = async (req,res) => {
     console.log(currentPrices);
 
     //Updated prices
-    trackingList.forEach(async tracker => {
-        const pageId = tracker.id;
-        const response = await notion.pages.update({
-            page_id: pageId,
-            properties: {
-                'Price':{
-                    number: currentPrices[tracker.properties.ID.rich_text[0].text.content].usd
+    try{
+        trackingList.forEach(async tracker => {
+            const pageId = tracker.id;
+            const response = await notion.pages.update({
+                page_id: pageId,
+                properties: {
+                    'Price':{
+                        number: currentPrices[tracker.properties.ID.rich_text[0].text.content].usd
+                    }
                 }
-            }
+            });
+            //console.log(response);
         });
-        //console.log(response);
-    });
-    res.end();
+        res.status(200).json({
+            message: "Update Completed."
+        });
+    }catch(err){
+        res.status(500).json({
+            error: err
+        });
+    }
 }
