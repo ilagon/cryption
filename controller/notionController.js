@@ -1,7 +1,7 @@
 const {Client} = require("@notionhq/client");
 const cryptoUtils = require("../util/cryptoUtil");
 const notion = new Client({auth: process.env.NOTION_INTEGRATION_TOKEN});
-let idList = [];
+
 
 const findTrackingList = async () => {
     const dbID = process.env.NOTION_CRYPTO_ID;
@@ -18,11 +18,28 @@ const findTrackingList = async () => {
 }
 
 exports.updateTrackedPrices = async (req,res) => {
+    let idList = [];
     let trackingList = await findTrackingList();
+    
+    //Retrieve tracked IDs
     trackingList.forEach(tracker => {
         idList.push(tracker.properties.ID.rich_text[0].text.content);
     });
     let currentPrices = await cryptoUtils.get_price(idList.join(","));
     console.log(currentPrices);
 
+    //Updated prices
+    trackingList.forEach(async tracker => {
+        const pageId = tracker.id;
+        const response = await notion.pages.update({
+            page_id: pageId,
+            properties: {
+                'Price':{
+                    number: currentPrices[tracker.properties.ID.rich_text[0].text.content].usd
+                }
+            }
+        });
+        //console.log(response);
+    });
+    res.end();
 }
