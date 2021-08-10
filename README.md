@@ -15,7 +15,7 @@ Queried prices are then used to update custom notion pages to reflect updated pr
 - [NotionAPI](https://developers.notion.com)
 
 ## Setup requirements:
-- A notion database similar to [this](https://lorenzo-adco.notion.site/a66abb2318a546bd93f20de20c2298f4?v=976b04b7193642559f8767cdaf632105) (Only Active Track, ID and Price properties are actually required)
+- A notion database similar to [this](https://lorenzo-adco.notion.site/a66abb2318a546bd93f20de20c2298f4?v=976b04b7193642559f8767cdaf632105) (Only ID and Price properties are actually required)
 
 - Your own notion API key and database keys. Check [here](https://developers.notion.com/docs/getting-started) for instructions on getting your own keys
 

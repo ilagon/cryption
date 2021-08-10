@@ -6,12 +6,6 @@ const findTrackingList = async () => {
   const dbID = process.env.NOTION_CRYPTO_ID;
   const response = await notion.databases.query({
     database_id: dbID,
-    filter: {
-      property: "Active Track",
-      checkbox: {
-        equals: true,
-      },
-    },
   });
   return response.results;
 };
