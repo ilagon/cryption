@@ -25,3 +25,8 @@ Queried prices are then used to update custom notion pages to reflect updated pr
 ## Coming Soon:
 - Stock database auto update API
 - Automatic scheduled triggers of APIs
+
+### Dev Notes:
+*I figured that creating an automatic scheduler would require me to deploy somewhere that will allow the app to run 24/7. Now this requirement isn't exactly available for free and I am currently not willing to pay for that feature on any platform.*
+
+*I will continue developing the scheduler portion but the current implementation would be deployed to heroku and use Windows Task Scheduler to trigger a curl script (Included in the util folder) every week to hit the API.*
