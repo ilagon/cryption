@@ -1,9 +1,10 @@
 {
   "name": "notion-update-scheduler",
-  "version": "0.0.0",
+  "version": "0.1.2",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
     "test": "mocha"
   },
   "dependencies": {
