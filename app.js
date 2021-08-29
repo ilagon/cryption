@@ -1,6 +1,8 @@
 var express = require('express');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+//Calls the scheduler
+require('./scheduler/CoingeckoScheduler');
 require('dotenv').config();
 
 let notionRoute = require('./routes/notion');
