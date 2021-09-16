@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const notionController = require('../controller/notionController');
+const coingeckoController = require('../controller/CoingeckoController');
+const finnhubController = require('../controller/FinnhubController');
 
-router.get("/crypto", notionController.updateTrackedPrices);
+router.get("/crypto", coingeckoController.updateTrackedPrices);
+
 
 module.exports = router;
