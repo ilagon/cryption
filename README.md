@@ -15,11 +15,14 @@ Queried prices are then used to update custom notion pages to reflect updated pr
 - [NotionAPI](https://developers.notion.com)
 
 ## Setup requirements:
-- A notion database similar to [this](https://lorenzo-adco.notion.site/a66abb2318a546bd93f20de20c2298f4?v=976b04b7193642559f8767cdaf632105) (Only ID and Price properties are actually required)
+- A notion database with minimally [these](https://lorenzo-adco.notion.site/a66abb2318a546bd93f20de20c2298f4?v=976b04b7193642559f8767cdaf632105) columns for crypto
+
+- A notion database with minimally [these](https://lorenzo-adco.notion.site/5985efa693a44833b09a08d0fec30fc2?v=ced3a3efaafc4a63ab2a0505d44747bc) columns for stocks
 
 - Your own notion API key and database keys. Check [here](https://developers.notion.com/docs/getting-started) for instructions on getting your own keys
 
 ## Usage:
+- To manually trigger crypto price updates, simply hit up '/notion/crypto' endpoint.
 - To manually trigger crypto price updates, simply hit up '/notion/crypto' endpoint.
 
 ## Coming Soon:
