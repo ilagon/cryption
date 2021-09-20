@@ -1,5 +1,5 @@
 const { Client } = require("@notionhq/client");
-const cryptoUtils = require("../util/cryptoUtil");
+const axios = require('axios');
 const notion = new Client({ auth: process.env.NOTION_INTEGRATION_TOKEN });
 
 const findTrackingList = async () => {
@@ -10,6 +10,18 @@ const findTrackingList = async () => {
   return response.results;
 };
 
+const get_price = async(idList) => {
+  const response = await axios.get('https://api.coingecko.com/api/v3/simple/price', {
+    params: {
+      ids: idList,
+      vs_currencies: "usd"
+    },
+  })
+  .then(res => res.data)
+  .catch(err => console.log(err));
+  return response;
+}
+
 exports.updateTrackedPrices = async (req, res) => {
   try {
     let idList = [];
@@ -19,7 +31,7 @@ exports.updateTrackedPrices = async (req, res) => {
     trackingList.forEach((tracker) => {
       idList.push(tracker.properties.ID.rich_text[0].text.content);
     });
-    let currentPrices = await cryptoUtils.get_price(idList.join(","));
+    let currentPrices = await get_price(idList.join(","));
     console.log(currentPrices);
 
     //Updated prices
