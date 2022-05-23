@@ -1,4 +1,4 @@
-# Notion Update Scheduler
+# Cryption
 
 A Standalone Express Application that queries current market prices of crypto and stocks from external APIs at certain intervals.
 
